@@ -8,7 +8,10 @@ package pages
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-import "jimdel/pkg/web/views/layouts"
+import (
+	"jimdel/pkg/web/views/components"
+	"jimdel/pkg/web/views/layouts"
+)
 
 func Home() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
@@ -43,7 +46,15 @@ func Home() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"-mt-24 bg-white max-w-screen-2xl mx-auto p-4 shadow-lg\"><p>Home</p></div>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"bg-hero bg-cover bg-center h-full flex justify-center items-center relative z-0\"><div id=\"overlay\" class=\"absolute h-full w-full bg-slate-600 opacity-70\"></div><div class=\"z-10 text-center mb-96\"><i class=\"fa-solid fa-hand-peace text-white text-6xl\"></i><h1 class=\"text-white text-6xl font-bold\">jimdel</h1></div></div><div class=\"bg-white p-8 rounded-t-md max-w-screen-2xl mx-auto relative -mt-72 h-full\"><div class=\"text-center\"><h2 class=\"text-4xl font-bold\">Hi, I'm Jim</h2><h3 class=\"text-3xl mt-4\">I make things with code.</h3><hr class=\"my-8\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = components.About().Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

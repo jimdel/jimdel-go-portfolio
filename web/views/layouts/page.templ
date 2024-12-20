@@ -11,11 +11,12 @@ type PageProps struct {
 
 templ Page(props PageProps) {
 	@helpers.HTMLWrapper(helpers.HTMLWrapperProps{Title: props.Title}) {
-		<main class="h-full">
+		<main class="h-full w-full">
 			@components.Navigation()
-			@components.PageHero()
 			{ children... }
-			@components.Footer()
+			// <div class="mt-8">
+			// 	@components.Footer()
+			// </div>
 		</main>
 	}
 }
