@@ -1,0 +1,9 @@
+package pages
+
+import "jimdel/pkg/web/views/layouts"
+
+templ Home() {
+	@layouts.Page(layouts.PageProps{Title: "Home"}) {
+		<p class="text-black">Home</p>
+	}
+}

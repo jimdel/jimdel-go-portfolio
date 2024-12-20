@@ -1,0 +1,15 @@
+{
+  "name": "go-htmx-alpine-starter",
+  "version": "1.0.0",
+  "description": "A Go, Templ, HTMX, and Alpine JS starter",
+  "main": "index.js",
+  "scripts": {
+    "tw:watch": "npx tailwindcss -i global.css -o ./static/global.css --watch",
+    "tw:build": "tailwindcss build -o ./static/global.css --minify"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

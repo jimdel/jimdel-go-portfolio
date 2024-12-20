@@ -1,0 +1,20 @@
+package helpers
+
+type HTMLWrapperProps struct {
+	Title string
+}
+
+templ HTMLWrapper(props HTMLWrapperProps) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>{ props.Title }</title>
+			<link href="../../static/global.css" rel="stylesheet"/>
+		</head>
+		<body>
+			{ children... }
+		</body>
+	</html>
+}

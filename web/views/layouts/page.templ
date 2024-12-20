@@ -1,0 +1,19 @@
+package layouts
+
+import (
+	"jimdel/pkg/web/views/components"
+	"jimdel/pkg/web/views/helpers"
+)
+
+type PageProps struct {
+	Title string
+}
+
+templ Page(props PageProps) {
+	@helpers.HTMLWrapper(helpers.HTMLWrapperProps{Title: props.Title}) {
+		<main class="h-screen">
+			@components.Navigation()
+			{ children... }
+		</main>
+	}
+}
