@@ -1,6 +1,5 @@
-tmp/
 *_templ.go
-static/
 node_modules/
 .env
 bin/
+tmp/*
