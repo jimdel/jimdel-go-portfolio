@@ -6,17 +6,17 @@ import (
 )
 
 type PageProps struct {
-	Title string
+	Title               string
+	IsNavigationEnabled bool
 }
 
 templ Page(props PageProps) {
 	@helpers.HTMLWrapper(helpers.HTMLWrapperProps{Title: props.Title}) {
 		<main class="h-full w-full">
-			@components.Navigation()
+			if props.IsNavigationEnabled {
+				@components.Navigation()
+			}
 			{ children... }
-			// <div class="mt-8">
-			// 	@components.Footer()
-			// </div>
 		</main>
 	}
 }

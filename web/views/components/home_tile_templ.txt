@@ -1,0 +1,2 @@
+<div class=\"border-2 border-white rounded-md h-40 w-40 md:h-64 md:w-64 flex flex-col items-center justify-center\"><i class=\"fa-solid fa-address-card text-white text-3xl md:text-5xl cursor-pointer\"></i> <a href=\"/about\"><p class=\"text-white text-3xl md:text-5xl\">
+</p></a></div>
