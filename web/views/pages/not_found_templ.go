@@ -43,7 +43,7 @@ func NotFound() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 1)
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"flex justify-center items-center h-full\"><div class=\"bg-white p-8 rounded-lg border-gray-200 border-2 max-w-md w-full text-center\"><h1 class=\"text-3xl font-extrabold text-red-500 mb-4\">Page Not Found</h1><p class=\"text-lg text-gray-700 mb-6\">Oops! The page you're looking for cannot be found.</p><p class=\"text-sm text-gray-500 mb-6\">It might have been moved, deleted, or you might have typed the URL incorrectly.</p><a href=\"/\" class=\"text-blue-500 font-semibold hover:underline\">Go back to the homepage</a></div></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

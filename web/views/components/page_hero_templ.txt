@@ -1,2 +1,0 @@
-<div class=\"bg-hero h-1/4 bg-cover bg-center relative\"><div class=\"text-center z-20 absolute w-full top-24\"><h1 class=\"text-white text-6xl font-mono tracking-widest\">
-</h1></div><div id=\"overlay-color\" class=\"h-full w-full bg-slate-900 opacity-70 z-10\"></div></div>

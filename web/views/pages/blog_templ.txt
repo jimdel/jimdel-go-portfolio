@@ -1,1 +1,0 @@
- <div class=\"text-center mt-4\"><h2 class=\"text-4xl font-bold\">Blog</h2><h3 class=\"text-3xl mt-4\">I make things with code.</h3></div>
