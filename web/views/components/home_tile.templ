@@ -7,12 +7,12 @@ type HomeTileProps struct {
 }
 
 templ HomeTile(props HomeTileProps) {
-	<div class="border-2 border-white rounded-md h-40 w-40 md:h-64 md:w-64 flex flex-col items-center justify-center">
-		<i class="fa-solid fa-address-card text-white text-3xl md:text-5xl cursor-pointer"></i>
-		<a href="/about">
-			<p class="text-white text-3xl md:text-5xl">
-				{ props.Text }
-			</p>
-		</a>
-	</div>
+	<a href={ templ.SafeURL(props.Link) } class="border-2 border-white rounded-md h-40 w-40 md:h-64 md:w-64 grid grid-cols-1 justify-items-center items-center font-mono tracking-wide">
+		<i
+			class={ "fa-solid text-white text-5xl md:text-7xl cursor-pointer", props.Icon }
+		></i>
+		<p class="text-white text-3xl md:text-5xl">
+			{ props.Text }
+		</p>
+	</a>
 }

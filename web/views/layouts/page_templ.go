@@ -16,6 +16,7 @@ import (
 type PageProps struct {
 	Title               string
 	IsNavigationEnabled bool
+	IsFooterEnabled     bool
 }
 
 func Page(props PageProps) templ.Component {
@@ -64,6 +65,12 @@ func Page(props PageProps) templ.Component {
 			templ_7745c5c3_Err = templ_7745c5c3_Var1.Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
+			}
+			if props.IsFooterEnabled {
+				templ_7745c5c3_Err = components.Footer().Render(ctx, templ_7745c5c3_Buffer)
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
 			}
 			templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 2)
 			if templ_7745c5c3_Err != nil {

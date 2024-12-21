@@ -8,6 +8,7 @@ import (
 type PageProps struct {
 	Title               string
 	IsNavigationEnabled bool
+	IsFooterEnabled     bool
 }
 
 templ Page(props PageProps) {
@@ -17,6 +18,9 @@ templ Page(props PageProps) {
 				@components.Navigation()
 			}
 			{ children... }
+			if props.IsFooterEnabled {
+				@components.Footer()
+			}
 		</main>
 	}
 }

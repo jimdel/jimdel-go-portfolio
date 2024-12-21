@@ -1,6 +1,9 @@
 package pages
 
-import "jimdel/pkg/web/views/layouts"
+import (
+	"jimdel/pkg/web/views/components"
+	"jimdel/pkg/web/views/layouts"
+)
 
 templ Home() {
 	@layouts.Page(layouts.PageProps{Title: "Home"}) {
@@ -12,55 +15,12 @@ templ Home() {
 				<h1 class="text-white text-6xl font-bold font-mono tracking-widest mt-4">jimdel</h1>
 			</div>
 			<div class="z-30 grid md:grid-cols-3 grid-cols-2 gap-4 px-4 mt-8 justify-items-center max-w-screen-lg mx-auto">
-				// TODO: make this it's own component
-				<div class="border-2 border-white rounded-md h-40 w-40 md:h-64 md:w-64 flex flex-col items-center justify-center">
-					<i class="fa-solid fa-address-card text-white text-3xl md:text-5xl cursor-pointer"></i>
-					<a href="/about">
-						<p class="text-white text-3xl md:text-5xl">
-							About
-						</p>
-					</a>
-				</div>
-				<div class="border-2 border-white rounded-md h-40 w-40 md:h-64 md:w-64 flex flex-col items-center justify-center">
-					<i class="fa-solid fa-blog text-white text-3xl md:text-5xl cursor-pointer"></i>
-					<a href="/blog">
-						<p class="text-white text-3xl md:text-5xl">
-							Blog
-						</p>
-					</a>
-				</div>
-				<div class="border-2 border-white rounded-md h-40 w-40 md:h-64 md:w-64 flex flex-col items-center justify-center">
-					<i class="fa-solid fa-hand-peace text-white text-3xl md:text-5xl cursor-pointer"></i>
-					<a href="/about">
-						<p class="text-envelope text-white text-3xl md:text-5xl">
-							Contact
-						</p>
-					</a>
-				</div>
-				<div class="border-2 border-white rounded-md h-40 w-40 md:h-64 md:w-64 flex flex-col items-center justify-center">
-					<i class="fa-solid fa-diagram-projects text-white text-3xl md:text-5xl cursor-pointer"></i>
-					<a href="/about">
-						<p class="text-white text-3xl md:text-5xl">
-							Projects
-						</p>
-					</a>
-				</div>
-				<div class="border-2 border-white rounded-md h-40 w-40 md:h-64 md:w-64 flex flex-col items-center justify-center">
-					<i class="fa-solid fa-file text-white text-3xl md:text-5xl cursor-pointer"></i>
-					<a href="/about">
-						<p class="text-white text-3xl md:text-5xl">
-							Resume
-						</p>
-					</a>
-				</div>
-				<div class="border-2 border-white rounded-md h-40 w-40 md:h-64 md:w-64 flex flex-col items-center justify-center">
-					<i class="fa-solid fa-globe text-white text-3xl md:text-5xl cursor-pointer"></i>
-					<a href="/about">
-						<p class="text-white text-3xl md:text-5xl">
-							Socials
-						</p>
-					</a>
-				</div>
+				@components.HomeTile(components.HomeTileProps{Icon: "fa-address-card", Text: "About", Link: "/about"})
+				@components.HomeTile(components.HomeTileProps{Icon: "fa-blog", Text: "Blog", Link: "/blog"})
+				@components.HomeTile(components.HomeTileProps{Icon: "fa-hand-peace", Text: "Contact", Link: "/contact"})
+				@components.HomeTile(components.HomeTileProps{Icon: "fa-diagram-project", Text: "Projects", Link: "/projects"})
+				@components.HomeTile(components.HomeTileProps{Icon: "fa-file", Text: "Resume", Link: "/resume"})
+				@components.HomeTile(components.HomeTileProps{Icon: "fa-globe", Text: "Socials", Link: "/socials"})
 			</div>
 		</div>
 	}

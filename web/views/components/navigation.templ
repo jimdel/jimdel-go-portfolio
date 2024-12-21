@@ -36,13 +36,13 @@ templ Navigation() {
 					></i>
 				</div>
 				<nav class="flex flex-col items-center gap-4 mt-24">
-					// Routes
+					// Routes - TODO: pull from a config file
 					<a @click="open = !open" href="/" class="text-3xl my-2">About</a>
 					<a @click="open = !open" href="/blog" class="text-3xl my-2">Blog</a>
 					// TODO: add a contact page that sends an email to me 
-					// <a @click="open = !open" href="/blog" class="text-3xl my-2">Contact</a>
-					<a @click="open = !open" href="/projects" class="text-3xl my-2">Projects</a>
-					<a @click="open = !open" href="/resume" class="text-3xl my-2">Resume</a>
+					<a @click="open = !open" href="/blog" class="text-3xl my-2">Contact</a>
+					// <a @click="open = !open" href="/projects" class="text-3xl my-2">Projects</a>
+					// <a @click="open = !open" href="/resume" class="text-3xl my-2">Resume</a>
 					// END Routes
 				</nav>
 			</div>

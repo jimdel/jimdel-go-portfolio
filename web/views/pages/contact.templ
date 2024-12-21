@@ -1,0 +1,16 @@
+package pages
+
+import (
+	"jimdel/pkg/web/views/components"
+	"jimdel/pkg/web/views/layouts"
+)
+
+templ Contact() {
+	@layouts.Page(layouts.PageProps{Title: "contact", IsNavigationEnabled: true, IsFooterEnabled: true}) {
+		@components.PageHero(components.PageHeroProps{Title: "contact"})
+		<div class="text-center mt-4">
+			<h2 class="text-4xl font-bold">Contact</h2>
+			<h3 class="text-3xl mt-4">I make things with code.</h3>
+		</div>
+	}
+}
