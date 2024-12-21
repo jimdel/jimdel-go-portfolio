@@ -3,3 +3,5 @@ node_modules/
 .env
 bin/
 tmp/
+*_templ.go
+_templ.txt
