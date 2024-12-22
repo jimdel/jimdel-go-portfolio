@@ -1,0 +1,17 @@
+package layouts
+
+import "jimdel/pkg/web/views/components"
+
+type ArticleProps struct {
+	Title   string
+	Content string
+}
+
+templ Article(props ArticleProps) {
+	@Page(PageProps{Title: props.Title, IsNavigationEnabled: true, IsFooterEnabled: true}) {
+		@components.PageHero(components.PageHeroProps{Title: props.Title})
+		<article class="markdown-body max-w-screen-2xl mx-auto">
+			@templ.Raw(props.Content)
+		</article>
+	}
+}

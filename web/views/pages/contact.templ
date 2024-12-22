@@ -20,7 +20,13 @@ templ Contact() {
 				Shoot me a message
 				<i class="fa-solid fa-hand-point-down text-black mt-2 mb-8 ml-2 transform scale-x-[-1]"></i>
 			</h3>
-			<form class="flex flex-col w-2/3 m-auto" method="post" action="/contact">
+			<form
+				method="post"
+				action="/contact"
+				hx-target="#email-validation"
+				hx-trigger="keyup changed delay:500ms"
+				class="flex flex-col w-2/3 m-auto"
+			>
 				<label for="name">
 					Name
 				</label>
@@ -28,7 +34,15 @@ templ Contact() {
 				<label for="email">
 					Email
 				</label>
-				<input id="email" type="email" placeholder="Email" class="w-full p-2 my-2 border border-gray-300 rounded-md"/>
+				<input
+					id="email"
+					type="email"
+					name="email"
+					required
+					placeholder="Email"
+					class="w-full p-2 my-2 border border-gray-300 rounded-md"
+				/>
+				<div id="email-validation" class="text-red-500 text-sm"></div>
 				<label for="message">
 					Message
 				</label>

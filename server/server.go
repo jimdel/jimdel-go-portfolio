@@ -2,6 +2,8 @@ package server
 
 import (
 	"fmt"
+	"jimdel/pkg/server/handlers"
+	"jimdel/pkg/web/views/layouts"
 	pages "jimdel/pkg/web/views/pages"
 
 	"net/http"
@@ -53,6 +55,20 @@ func Run(PORT string) error {
 			route.Component.Render(r.Context(), w)
 		})
 	}
+
+	r.Get("/blog/{articleId}", func(w http.ResponseWriter, r *http.Request) {
+		// TODO: find article by ID
+		articleId := chi.URLParam(r, "articleId")
+		fmt.Println(articleId)
+		// END
+		md := handlers.NewMarkdown("/content/blog/test.md")
+		template := layouts.Article(layouts.ArticleProps{Title: "Test", Content: md.Html})
+		template.Render(r.Context(), w)
+	})
+
+	r.Post("/contact", func(w http.ResponseWriter, r *http.Request) {
+		handlers.ContactHandler(w, r)
+	})
 
 	r.NotFound(func(w http.ResponseWriter, r *http.Request) {
 		component := pages.NotFound()
