@@ -46,7 +46,7 @@ func Home() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"h-full w-full flex flex-col relative z-0 overflow-x-hidden md:overflow-hidden\"><div id=\"overlay-img\" class=\"absolute h-full w-full bg-hero bg-cover bg-center z-10 scale-150\"></div><div id=\"overlay-color\" class=\"absolute h-full w-full bg-slate-900 opacity-70 z-20 scale-150\"></div><div class=\"z-30 text-center my-8 md:my-16\"><i class=\"fa-solid fa-hand-peace text-white text-6xl\"></i><h1 class=\"text-white text-6xl font-bold font-mono tracking-widest mt-4\">jimdel</h1></div><div class=\"z-30 grid md:grid-cols-3 grid-cols-2 gap-4 px-4 mt-8 justify-items-center max-w-screen-lg mx-auto\">")
+			templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 1)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -74,7 +74,7 @@ func Home() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></div>")
+			templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 2)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

@@ -10,8 +10,10 @@ type ArticleProps struct {
 templ Article(props ArticleProps) {
 	@Page(PageProps{Title: props.Title, IsNavigationEnabled: true, IsFooterEnabled: true}) {
 		@components.PageHero(components.PageHeroProps{Title: props.Title})
-		<article class="markdown-body max-w-screen-2xl mx-auto">
-			@templ.Raw(props.Content)
-		</article>
+		<div class="mx-auto pb-12" style="max-width: 1200px;">
+			<article class="markdown-body">
+				@templ.Raw(props.Content)
+			</article>
+		</div>
 	}
 }
