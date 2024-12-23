@@ -25,10 +25,11 @@ func BlogHandler(w http.ResponseWriter, r *http.Request) {
 
 }
 func getAllBlogPosts() []helpers.Markdown {
-	files := helpers.GetAllFilesInDir("/content/blog")
+	files := helpers.GetAllFilesInDir("blog")
 	articles := []helpers.Markdown{}
 	for _, file := range files {
-		fileName := fmt.Sprintf("/content/blog/%s", file)
+		fmt.Println(file)
+		fileName := fmt.Sprintf("blog/%s", file)
 		md := NewMarkdown(fileName)
 		articles = append(articles, md)
 	}

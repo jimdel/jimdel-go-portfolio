@@ -2,9 +2,9 @@ package handlers
 
 import (
 	"bytes"
+	"jimdel/pkg/content"
 	"jimdel/pkg/server/helpers"
 	"log"
-	"os"
 	"strings"
 
 	"github.com/adrg/frontmatter"
@@ -15,12 +15,8 @@ import (
 	"github.com/yuin/goldmark/renderer/html"
 )
 
-// MarkdownMetaData represents the frontmatter structure
-
 func NewMarkdown(path string) helpers.Markdown {
-	// Read file
-	cwd, _ := os.Getwd()
-	file, err := os.ReadFile(cwd + path)
+	file, err := content.ContentFS.ReadFile(path)
 	if err != nil {
 		log.Fatalf("Error reading file: %v", err)
 	}

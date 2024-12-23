@@ -18,6 +18,9 @@ build-tailwind:
 templ:
 	@templ generate --watch --proxy=http://localhost:$(APP_PORT) --proxyport=$(TEMPL_PROXY_PORT) --open-browser=false --proxybind="0.0.0.0"
 
+prod:
+	@./bin/main
+
 run:
 	@make templ & sleep 1
 	@air

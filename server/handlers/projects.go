@@ -20,10 +20,10 @@ func ProjectHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func getAllProjects() []helpers.Project {
-	files := helpers.GetAllFilesInDir("/content/projects")
+	files := helpers.GetAllFilesInDir("projects")
 	projects := []helpers.Project{}
 	for _, file := range files {
-		fileName := fmt.Sprintf("/content/projects/%s", file)
+		fileName := fmt.Sprintf("projects/%s", file)
 		project := helpers.ParseYaml(fileName, &helpers.Project{})
 		projects = append(projects, *project)
 	}

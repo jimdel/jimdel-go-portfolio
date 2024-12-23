@@ -13,6 +13,6 @@ require (
 )
 
 require (
-	github.com/BurntSushi/toml v0.3.1 // indirect
-	gopkg.in/yaml.v2 v2.3.0 // indirect
+	github.com/BurntSushi/toml v1.4.0 // indirect
+	gopkg.in/yaml.v2 v2.4.0 // indirect
 )

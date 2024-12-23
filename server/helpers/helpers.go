@@ -2,8 +2,9 @@ package helpers
 
 import (
 	"log"
-	"os"
 	"regexp"
+
+	"jimdel/pkg/content"
 
 	"gopkg.in/yaml.v3"
 )
@@ -52,8 +53,7 @@ type Markdown struct {
 }
 
 func ParseYaml[T any](fileName string, targetStruct *T) *T {
-	cwd, _ := os.Getwd()
-	yamlData, err := os.ReadFile(cwd + fileName)
+	yamlData, err := content.ContentFS.ReadFile(fileName)
 	if err != nil {
 		log.Fatalf("Error reading file: %v", err)
 	}
@@ -65,8 +65,8 @@ func ParseYaml[T any](fileName string, targetStruct *T) *T {
 }
 
 func GetAllFilesInDir(subDir string) []string {
-	cwd, _ := os.Getwd()
-	files, err := os.ReadDir(cwd + subDir)
+	files, err := content.ContentFS.ReadDir(subDir)
+
 	if err != nil {
 		log.Fatalf("Error reading directory: %v", err)
 	}
@@ -82,7 +82,7 @@ func GetAllFilesInDir(subDir string) []string {
 
 func GetSiteConfigValue(key string) string {
 	siteConfig := &SiteConfig{}
-	siteConfig = ParseYaml("/content/site.config.yml", siteConfig)
+	siteConfig = ParseYaml("site.config.yml", siteConfig)
 	switch key {
 	case "resume":
 		return siteConfig.ResumeURL
