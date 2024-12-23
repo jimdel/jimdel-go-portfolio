@@ -1,6 +1,0 @@
-<a
- href=\"
-\" class=\"border-2 border-white rounded-full h-40 w-40 md:h-64 md:w-64 flex flex-col justify-center items-center font-mono tracking-wide\">
-<i class=\"
-\"></i><p class=\"text-white text-2xl md:text-3xl mt-4\">
-</p></a>

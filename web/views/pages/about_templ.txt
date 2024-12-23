@@ -1,2 +1,0 @@
- <div class=\"grid grid-cols-1 md:grid-cols-2 max-w-screen-xl mx-auto p-4 mt-4\"><image src=\"../../static/headshot.png\" class=\"rounded-full justify-self-center self-center border-2 border-slate-900\"></image><div><h2 class=\"text-4xl font-bold text-center font-mono text-slate-900\">Hi, I'm James</h2>
-</div></div>

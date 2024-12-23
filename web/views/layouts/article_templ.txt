@@ -1,2 +1,0 @@
- <div class=\"bg-pattern bg-slate-50\"><div class=\"mx-auto\" style=\"max-width: 1200px;\"><article class=\"markdown-body bg-white p-4\">
-</article></div></div>
