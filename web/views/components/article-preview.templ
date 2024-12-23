@@ -1,0 +1,19 @@
+package components
+
+type ArticlePreviewProps struct {
+	Date  string
+	Title string
+	Blurb string
+}
+
+templ ArticlePreview(props ArticlePreviewProps) {
+	<article>
+		<h2 class="text-2xl font-bold text-gray-900 hover:text-blue-600 cursor-pointer mt-2">
+			<a href={ templ.SafeURL("/blog/" + props.Title) }>{ props.Title }</a>
+		</h2>
+		<time class="text-sm text-gray-500">{ props.Date }</time>
+		<p class="text-gray-600 line-clamp-3 mt-2">
+			{ props.Blurb }
+		</p>
+	</article>
+}

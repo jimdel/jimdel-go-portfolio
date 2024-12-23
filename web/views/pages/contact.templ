@@ -14,18 +14,19 @@ TODO:
 templ Contact() {
 	@layouts.Page(layouts.PageProps{Title: "contact", IsNavigationEnabled: true, IsFooterEnabled: true}) {
 		@components.PageHero(components.PageHeroProps{Title: "contact"})
-		<div class="mt-4 flex flex-col items-center">
-			<h3 class="text-4xl">
-				<i class="fa-solid fa-hand-point-down text-black mt-2 mb-8 mr-2"></i>
+		<div id="contact-page" class="mt-4 flex flex-col items-center">
+			<h3 class="text-4xl text-slate-900">
+				<i class="fa-solid fa-hand-point-down mt-2 mb-8 mr-2"></i>
 				Shoot me a message
-				<i class="fa-solid fa-hand-point-down text-black mt-2 mb-8 ml-2 transform scale-x-[-1]"></i>
+				<i class="fa-solid fa-hand-point-down mt-2 mb-8 ml-2 transform scale-x-[-1]"></i>
 			</h3>
 			<form
+				id="contact-form"
 				method="post"
-				action="/contact"
-				hx-target="#email-validation"
-				hx-trigger="keyup changed delay:500ms"
 				class="flex flex-col w-2/3 m-auto"
+				hx-post="/contact"
+				hx-target="#contact-page"
+				hx-swap="outerHTML"
 			>
 				<label for="name">
 					Name
@@ -47,7 +48,7 @@ templ Contact() {
 					Message
 				</label>
 				<textarea id="message" type="text" placeholder="Message" class="w-full p-2 my-2 border border-gray-300 rounded-md min-h-40"></textarea>
-				<button class="bg-slate-900 hover:bg-white hover:border-2 hover:border-slate-900 hover:text-slate-900 text-white p-4 w-36 ml-auto mt-4 rounded-lg font-bold tracking-wide">SUBMIT</button>
+				<button class="btn">SUBMIT</button>
 			</form>
 		</div>
 	}

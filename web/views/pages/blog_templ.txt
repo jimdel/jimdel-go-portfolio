@@ -1,1 +1,2 @@
- <div class=\"text-center mt-4\"><h2 class=\"text-4xl font-bold\">Blog</h2><h3 class=\"text-3xl mt-4\">I make things with code.</h3><a href=\"/blog/123\">Test md</a></div>
+ <div class=\"max-w-screen-2xl mx-auto p-4\">
+</div>

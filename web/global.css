@@ -5,3 +5,7 @@
 [x-cloak] {
   display: none !important;
 }
+
+.btn {
+  @apply bg-slate-900 border-2 hover:bg-white border-slate-900 hover:text-slate-900 text-white p-4 min-w-36 ml-auto mt-4 rounded-lg font-bold tracking-wide;
+}

@@ -8,12 +8,14 @@ type ArticleProps struct {
 }
 
 templ Article(props ArticleProps) {
-	@Page(PageProps{Title: props.Title, IsNavigationEnabled: true, IsFooterEnabled: true}) {
+	@Page(PageProps{Title: props.Title, IsNavigationEnabled: true, IsFooterEnabled: false}) {
 		@components.PageHero(components.PageHeroProps{Title: props.Title})
-		<div class="mx-auto pb-12" style="max-width: 1200px;">
-			<article class="markdown-body">
-				@templ.Raw(props.Content)
-			</article>
+		<div class="bg-pattern bg-slate-50">
+			<div class="mx-auto" style="max-width: 1200px;">
+				<article class="markdown-body bg-white p-4">
+					@templ.Raw(props.Content)
+				</article>
+			</div>
 		</div>
 	}
 }

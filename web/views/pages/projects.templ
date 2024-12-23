@@ -1,0 +1,26 @@
+package pages
+
+import (
+	"jimdel/pkg/server/helpers"
+	"jimdel/pkg/web/views/components"
+	"jimdel/pkg/web/views/layouts"
+)
+
+templ Projects(projects []helpers.Project) {
+	@layouts.Page(layouts.PageProps{Title: "Projects", IsNavigationEnabled: true, IsFooterEnabled: true}) {
+		@components.PageHero(components.PageHeroProps{Title: "projects"})
+		<div class="max-w-screen-2xl mx-auto p-4">
+			<div class="grid-cols-1 md:grid-cols-3 gap-4 grid">
+				for _, project := range projects {
+					@components.Card(components.CardProps{
+						Title:       project.Title,
+						URL:         project.URL,
+						Date:        project.Date,
+						Description: project.Description,
+						CoverImage:  project.CoverImage,
+					})
+				}
+			</div>
+		</div>
+	}
+}

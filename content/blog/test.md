@@ -1,4 +1,8 @@
-<!-- TODO: add front matter support -->
+---
+title: "Comprehensive Markdown Syntax Guide"
+date: "2022-01-01"
+blurb: "A comprehensive guide to Markdown syntax and features."
+---
 
 # Comprehensive Markdown Syntax Guide
 

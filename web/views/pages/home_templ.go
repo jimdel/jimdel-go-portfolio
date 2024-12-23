@@ -9,6 +9,7 @@ import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
 import (
+	"jimdel/pkg/server/helpers"
 	"jimdel/pkg/web/views/components"
 	"jimdel/pkg/web/views/layouts"
 )
@@ -50,27 +51,27 @@ func Home() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = components.HomeTile(components.HomeTileProps{Icon: "fa-address-card", Text: "About", Link: "/about"}).Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = components.HomeTile(components.HomeTileProps{Icon: "fa-solid fa-address-card", Text: "about", Link: "/about"}).Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = components.HomeTile(components.HomeTileProps{Icon: "fa-newspaper", Text: "Blog", Link: "/blog"}).Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = components.HomeTile(components.HomeTileProps{Icon: "fa-solid fa-newspaper", Text: "blog", Link: "/blog"}).Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = components.HomeTile(components.HomeTileProps{Icon: "fa-envelope", Text: "Contact", Link: "/contact"}).Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = components.HomeTile(components.HomeTileProps{Icon: "fa-solid fa-diagram-project", Text: "projects", Link: "/projects"}).Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = components.HomeTile(components.HomeTileProps{Icon: "fa-diagram-project", Text: "Projects", Link: "/projects"}).Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = components.HomeTile(components.HomeTileProps{Icon: "fa-solid fa-file", Text: "resume", Link: helpers.GetSiteConfigValue("resume"), Attrs: templ.Attributes{"target": "_blank"}}).Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = components.HomeTile(components.HomeTileProps{Icon: "fa-file", Text: "Resume", Link: "/resume"}).Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = components.HomeTile(components.HomeTileProps{Icon: "fa-brands fa-github", Text: "gitHub", Link: helpers.GetSiteConfigValue("github"), Attrs: templ.Attributes{"target": "_blank"}}).Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = components.HomeTile(components.HomeTileProps{Icon: "fa-globe", Text: "Socials", Link: "/socials"}).Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = components.HomeTile(components.HomeTileProps{Icon: "fa-brands fa-linkedin", Text: "linkedin", Link: helpers.GetSiteConfigValue("linkedin"), Attrs: templ.Attributes{"target": "_blank"}}).Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

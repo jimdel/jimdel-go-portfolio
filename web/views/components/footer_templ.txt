@@ -1,1 +1,1 @@
-<footer class=\"w-full text-slate-900 z-50 p-4 absolute fixed-0\"><p class=\"text-center font-mono text-sm\">&copy;jimdel 2024</p></footer>
+<footer class=\"w-full text-slate-900 z-50 py-4\"><p class=\"text-center font-mono text-sm\">&copy;jimdel 2024</p></footer>

@@ -1,27 +1,29 @@
 package pages
 
 import (
+	"jimdel/pkg/server/helpers"
 	"jimdel/pkg/web/views/components"
 	"jimdel/pkg/web/views/layouts"
+	"strings"
 )
 
+func parseBio() string {
+	bio := helpers.GetSiteConfigValue("bio")
+	paragraphs := strings.Split(bio, "\n")
+	for i, p := range paragraphs {
+		paragraphs[i] = "<p class=\"text-lg my-2\">" + p + "</p>"
+	}
+	return strings.Join(paragraphs, "")
+}
+
 templ About() {
-	@layouts.Page(layouts.PageProps{Title: "about", IsNavigationEnabled: true, IsFooterEnabled: true}) {
+	@layouts.Page(layouts.PageProps{Title: "About", IsNavigationEnabled: true, IsFooterEnabled: true}) {
 		@components.PageHero(components.PageHeroProps{Title: "about"})
-		<div class="grid grid-cols-1 md:grid-cols-2 mt-8">
-			<image src="https://avatars.githubusercontent.com/u/1024025" class="rounded-full w-96 h-96 justify-self-center self-center"></image>
+		<div class="grid grid-cols-1 md:grid-cols-2 max-w-screen-xl mx-auto p-4 mt-4">
+			<image src="../../static/headshot.png" class="rounded-full justify-self-center self-center border-2 border-slate-900"></image>
 			<div>
-				<h2 class="text-4xl font-bold">Hi, I'm James</h2>
-				<h3 class="text-3xl my-8">I'm a: ~cycle-through-hobbies~</h3>
-				<p class="my-2">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut efficitur, felis et tempor tristique, dui purus scelerisque neque, sed maximus dui tortor nec enim. Aenean ac metus ac lorem placerat vulputate non ac libero. Suspendisse potenti. Donec sollicitudin nisi nec quam mollis, in feugiat enim malesuada. Integer vel lacus a lectus consequat fermentum non nec ligula. Cras ut dui ligula. Curabitur euismod nibh libero, eu hendrerit purus consectetur sit amet. Sed ac dui ut metus vulputate interdum.
-				</p>
-				<p class="my-2">
-					Phasellus luctus lectus non eros fermentum, a tristique eros cursus. Proin ornare ligula non elit vulputate, a sodales sapien fermentum. Nam id neque sit amet sapien dapibus faucibus. Vestibulum vestibulum feugiat dolor, vitae volutpat dui luctus sit amet. Curabitur ut turpis neque. Fusce lobortis, ligula at gravida suscipit, sapien ligula facilisis lorem, ac egestas risus ipsum id leo. Aenean ac felis sit amet libero aliquet hendrerit non a sapien. Sed bibendum metus sed justo vehicula, sit amet scelerisque risus volutpat.
-				</p>
-				<p class="my-2">
-					Quisque maximus, sapien vitae pretium convallis, felis metus suscipit est, sit amet eleifend urna elit non neque. Ut tempus orci ut convallis gravida. Nulla id quam a augue auctor condimentum. Integer at orci lorem. Mauris vitae ante erat. Vivamus non orci ac sapien fermentum ullamcorper sit amet et enim. Donec pretium sapien vel justo condimentum, id faucibus leo maximus. Nunc gravida augue ut ante viverra tempus. Nam egestas dui non velit fringilla, eget facilisis lectus auctor.
-				</p>
+				<h2 class="text-4xl font-bold text-center font-mono text-slate-900">Hi, I'm James</h2>
+				@templ.Raw(parseBio())
 			</div>
 		</div>
 	}

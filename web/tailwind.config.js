@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         hero: "url('/static/code.jpg')", // Custom background image
+        pattern: "url('/static/pattern.svg')", // Custom background image
       },
     },
   },
