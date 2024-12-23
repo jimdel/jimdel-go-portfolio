@@ -6,3 +6,5 @@ tmp/
 *_templ.go
 _templ.txt
 site.config.yml
+*_templ.txt
+*_templ.go
