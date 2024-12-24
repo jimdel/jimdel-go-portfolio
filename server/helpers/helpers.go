@@ -1,11 +1,17 @@
 package helpers
 
 import (
+	"io/fs"
 	"log"
+	"mime"
+	"net/http"
+	"path/filepath"
 	"regexp"
+	"strings"
 
 	"jimdel/pkg/content"
 
+	"github.com/go-chi/chi"
 	"gopkg.in/yaml.v3"
 )
 
@@ -95,4 +101,34 @@ func GetSiteConfigValue(key string) string {
 	default:
 		return ""
 	}
+}
+
+func FileServer(r chi.Router, path string, root fs.FS) {
+	if strings.ContainsAny(path, "{}*") {
+		panic("FileServer does not permit URL parameters.")
+	}
+
+	if path != "/" && path[len(path)-1] != '/' {
+		r.Get(path, http.RedirectHandler(path+"/", http.StatusMovedPermanently).ServeHTTP)
+		path += "/"
+	}
+	path += "*"
+
+	r.Get(path, func(w http.ResponseWriter, r *http.Request) {
+		rctx := chi.RouteContext(r.Context())
+		pathPrefix := strings.TrimSuffix(rctx.RoutePattern(), "/*")
+		fs := http.StripPrefix(pathPrefix, http.FileServer(http.FS(root)))
+
+		// Get the file path from the request
+		filePath := strings.TrimPrefix(r.URL.Path, pathPrefix)
+
+		// Detect content type based on file extension
+		ext := filepath.Ext(filePath)
+		contentType := mime.TypeByExtension(ext)
+		if contentType != "" {
+			w.Header().Set("Content-Type", contentType)
+		}
+
+		fs.ServeHTTP(w, r)
+	})
 }
