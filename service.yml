@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: jimdel-go-portfolio-service
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: jimdel-go-portfolio
   ports:
