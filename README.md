@@ -12,4 +12,9 @@
 - In two terminal windows
   - `make run`
   - `make watch-tailwind`
+
 # jimdel-go-portfolio
+
+### To Do
+
+- Remove Tailwind build step, use CDN instead
