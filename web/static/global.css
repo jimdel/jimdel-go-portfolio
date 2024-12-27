@@ -701,6 +701,18 @@ video {
   height: 100vh;
 }
 
+.h-\[100px\] {
+  height: 100px;
+}
+
+.h-\[200px\] {
+  height: 200px;
+}
+
+.h-\[250px\] {
+  height: 250px;
+}
+
 .min-h-40 {
   min-height: 10rem;
 }
@@ -786,14 +798,6 @@ video {
 
 .gap-4 {
   gap: 1rem;
-}
-
-.gap-2 {
-  gap: 0.5rem;
-}
-
-.gap-6 {
-  gap: 1.5rem;
 }
 
 .gap-8 {
@@ -906,11 +910,6 @@ video {
 
 .p-8 {
   padding: 2rem;
-}
-
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
 }
 
 .py-4 {
@@ -1105,6 +1104,10 @@ video {
 
   .md\:h-64 {
     height: 16rem;
+  }
+
+  .md\:h-\[300px\] {
+    height: 300px;
   }
 
   .md\:w-64 {
