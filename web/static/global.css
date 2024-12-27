@@ -621,11 +621,6 @@ video {
   margin-bottom: 0.5rem;
 }
 
-.my-8 {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -671,10 +666,6 @@ video {
   margin-top: 1rem;
 }
 
-.mt-8 {
-  margin-top: 2rem;
-}
-
 .line-clamp-3 {
   overflow: hidden;
   display: -webkit-box;
@@ -712,6 +703,10 @@ video {
 
 .min-h-40 {
   min-height: 10rem;
+}
+
+.min-h-screen {
+  min-height: 100vh;
 }
 
 .w-2\/3 {
@@ -793,12 +788,28 @@ video {
   gap: 1rem;
 }
 
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.gap-8 {
+  gap: 2rem;
+}
+
 .self-center {
   align-self: center;
 }
 
 .justify-self-center {
   justify-self: center;
+}
+
+.overflow-scroll {
+  overflow: scroll;
 }
 
 .rounded-full {
