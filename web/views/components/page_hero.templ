@@ -5,10 +5,10 @@ type PageHeroProps struct {
 }
 
 templ PageHero(props PageHeroProps) {
-	<div class="bg-hero bg-cover bg-center relative h-[250px] md:h-[300px]">
-		<div class="text-center z-20 absolute w-full top-24">
-			<h1 class="text-white text-3xl md:text-5xl font-mono tracking-widest">{ props.Title }</h1>
-		</div>
+	<div class="bg-hero bg-cover bg-center relative h-[200px] md:h-[300px]">
 		<div id="overlay-color" class="h-full w-full bg-slate-900 opacity-70 z-10"></div>
+		<div class="flex justify-center items-center text-center z-20 absolute w-full h-full top-0 left-0">
+			<h1 class="text-white text-4xl font-mono tracking-widest">{ props.Title }</h1>
+		</div>
 	</div>
 }
