@@ -11,12 +11,12 @@ templ HomeTile(props HomeTileProps) {
 	<a
 		{ props.Attrs... }
 		href={ templ.SafeURL(props.Link) }
-		class="border-2 border-white rounded-full h-32 w-32 md:h-64 md:w-64 flex flex-col justify-center items-center font-mono tracking-wide"
+		class="border-2 border-white rounded-full h-28 w-28 md:h-64 md:w-64 flex flex-col justify-center items-center font-mono tracking-wide"
 	>
 		<i
-			class={ "text-white text-5xl md:text-7xl cursor-pointer", props.Icon }
+			class={ "text-white text-4xl md:text-7xl cursor-pointer", props.Icon }
 		></i>
-		<p class="text-white text-lg md:text-3xl mt-4">
+		<p class="text-white text-md md:text-3xl mt-4">
 			{ props.Text }
 		</p>
 	</a>
