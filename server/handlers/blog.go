@@ -5,6 +5,7 @@ import (
 	"jimdel/pkg/server/helpers"
 	"jimdel/pkg/web/views/pages"
 	"net/http"
+	"sort"
 
 	"github.com/go-chi/chi"
 )
@@ -33,5 +34,8 @@ func getAllBlogPosts() []helpers.Markdown {
 		md := NewMarkdown(fileName)
 		articles = append(articles, md)
 	}
+	sort.Slice(articles, func(i, j int) bool {
+		return articles[i].Meta.Date > articles[j].Meta.Date
+	})
 	return articles
 }
