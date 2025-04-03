@@ -37,18 +37,18 @@ templ Navigation() {
 						class="fa-solid fa-close text-white text-4xl cursor-pointer absolute top-4 right-4"
 					></i>
 				</div>
-				<nav class="flex flex-col items-center gap-4 mt-24">
+				<nav class="flex flex-col items-center gap-4 mt-24 font-mono">
 					// Routes - TODO: pull from a config file
-					<a @click="open = !open" href="/about" class="text-3xl my-2">About</a>
-					<a @click="open = !open" href="/blog" class="text-3xl my-2">Blog</a>
-					<a @click="open = !open" href="/projects" class="text-3xl my-2">Projects</a>
+					<a @click="open = !open" href="/about" class="text-3xl my-2">about</a>
+					<a @click="open = !open" href="/blog" class="text-3xl my-2">blog</a>
+					<a @click="open = !open" href="/projects" class="text-3xl my-2">projects</a>
 					<a
 						@click="open = !open"
 						target="_blank"
 						href={ templ.SafeURL(helpers.GetSiteConfigValue("github")) }
 						class="text-3xl my-2"
 					>
-						GitHub
+						github
 					</a>
 					<a
 						@click="open = !open"
@@ -56,7 +56,7 @@ templ Navigation() {
 						href={ templ.SafeURL(helpers.GetSiteConfigValue("resume")) }
 						class="text-3xl my-2"
 					>
-						Resume
+						resume
 					</a>
 				</nav>
 			</div>
