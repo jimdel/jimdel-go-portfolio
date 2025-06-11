@@ -3,9 +3,9 @@ kind: Service
 metadata:
   name: jimdel-go-portfolio-service
 spec:
-  type: NodePort
   selector:
-    app: jimdel-go-portfolio
+    app: webapp
   ports:
-    - port: 8080
-      targetPort: 8080
+  - port: 80
+    targetPort: 8080  # Your app's port
+  type: ClusterIP
