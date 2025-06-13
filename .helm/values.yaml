@@ -8,7 +8,7 @@ deployment:
 
 # image configuration - restructured for Flux compatibility
 image:
-  repository: docker.io/delayj/jimdel
+  repository: delayj/jimdel
   tag: latest
   pullPolicy: Always
 
