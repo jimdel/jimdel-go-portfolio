@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	_ = godotenv.Load()
+	godotenv.Load()
 	// if err != nil {
 	// 	log.Fatal("Error loading .env file")
 	// }
@@ -18,7 +18,7 @@ func main() {
 	if envPort := os.Getenv("APP_PORT"); envPort != "" {
 		port = ":" + envPort
 	}
-	err = server.Run(port)
+	err := server.Run(port)
 
 	if err != nil {
 		log.Fatal(err)
