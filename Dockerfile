@@ -40,7 +40,6 @@ RUN go test -v ./...
 FROM gcr.io/distroless/base-debian12 AS deploy-stage
 WORKDIR /app
 COPY --from=build-stage /app/bin/main /app/main
-COPY --from=build-stage /app/.env /app/.env
 
 # Instead of trying to copy static, just create an empty directory
 # This ensures the application has a static directory to work with
