@@ -5,6 +5,7 @@ metadata:
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     cert-manager.io/cluster-issuer: {{ .Values.applicationName }}-certmanager
+    kubernetes.io/namespace: {{ .Release.Namespace }}
 spec:
   tls:
     - hosts:

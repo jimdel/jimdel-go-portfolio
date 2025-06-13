@@ -5,8 +5,12 @@ applicationName: jimdel
 deployment:
   replicaCount: 2
   containerPort: 3000
-  dockerImage: delayj/jimdel
-  dockerTag: latest
+
+# image configuration - restructured for Flux compatibility
+image:
+  repository: docker.io/delayj/jimdel
+  tag: latest
+  pullPolicy: Always
 
 # service.yaml
 service:
