@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: {{ .Values.applicationName }}
-          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }} # {"$imagepolicy": "flux-system:jimdel"}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: {{ .Values.deployment.containerPort }}
