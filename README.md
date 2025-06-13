@@ -1,20 +1,3 @@
-# go-HTMX-Alpine-Starter
+# jimdel
 
-## Deps
-
-- [Alpine.js](https://alpinejs.dev/)
-- [HTMX](https://htmx.org/)
-- [TailwindCSS](https://tailwindcss.com/)
-- [Templ](https://templ.guide/)
-
-### Development
-
-- In two terminal windows
-  - `make run`
-  - `make watch-tailwind`
-
-# jimdel-go-portfolio
-
-### To Do
-
-- Remove Tailwind build step, use CDN instead
+My personal website, built with Go, Templ, and Tailwind CSS. Self-hosted on a Raspberry Pi cluster managed by Helm
