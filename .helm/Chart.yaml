@@ -1,6 +1,5 @@
 apiVersion: v2
-name: jimdel-app
-description: A Helm chart for the jimdel portfolio application
-type: application
+name: jimdel
+description: A Helm chart for jimdel portfolio application
 version: 0.1.0
-appVersion: "1.0.0"
+appVersion: "1.0"

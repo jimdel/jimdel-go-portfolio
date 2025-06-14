@@ -1,25 +1,64 @@
-# globals
-applicationName: jimdel
+# # globals
+# applicationName: jimdel
 
-# deployment.yaml 
-deployment:
-  replicaCount: 2
-  containerPort: 3000
+# # deployment.yaml 
+# deployment:
+  # replicaCount: 2
+  # containerPort: 3000
 
-# image configuration - restructured for Flux compatibility
+# # image configuration - restructured for Flux compatibility
+# image:
+#   repository: delayj/jimdel
+#   tag: latest
+#   pullPolicy: Always
+# # 
+# # service.yaml
+# service:
+#   targetPort: 8080
+
+# # ingress.yaml
+# ingress:
+#   host: jimdel.dev
+
+# # certmanager
+# certmanager:
+#   contactEmail: "jim@jim.com" #TODO: load from env
+
+# Image configuration - Flux will override the tag
 image:
   repository: delayj/jimdel
-  tag: latest
-  pullPolicy: Always
+  tag: latest  # This will be overridden by Flux
+  pullPolicy: IfNotPresent
 
-# service.yaml
+# App configuration
+replicaCount: 1
+
+# Service configuration
 service:
-  targetPort: 8080
+  type: ClusterIP
+  port: 80
+  targetPort: 8080  # Adjust to your Go app's port
 
-# ingress.yaml
+# Ingress configuration - make sure this matches your existing setup
 ingress:
-  host: jimdel.dev
+  enabled: true
+  className: traefik
+  host: jimdel.dev # Update with your actual domain
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  tls:
+    enabled: true
+    secretName: jimdel-tls
 
-# certmanager
-certmanager:
-  contactEmail: "jim@jim.com" #TODO: load from env
+# Resources
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi
+
+# Any other app-specific values you have

@@ -1,24 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.applicationName }}-deployment
+  name: {{ include "jimdel.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ include "jimdel.name" . }}
 spec:
-  replicas: {{ .Values.deployment.replicaCount }}
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Values.applicationName }}
+      app: {{ include "jimdel.name" . }}
   template:
     metadata:
       labels:
-        app: {{ .Values.applicationName }}
-      annotations:
-        {{- with .Values.podAnnotations }}
-        {{- toYaml . | nindent 8 }}
-        {{- end }}
+        app: {{ include "jimdel.name" . }}
     spec:
       containers:
-        - name: {{ .Values.applicationName }}
-          image: {{ .Values.image.repository }}:{{ .Values.image.tag }} # {"$imagepolicy": "flux-system:jimdel"}
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          ports:
-            - containerPort: {{ .Values.deployment.containerPort }}
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - name: http
+          containerPort: {{ .Values.service.targetPort }}
+          protocol: TCP
+        resources:
+          {{- toYaml .Values.resources | nindent 12 }}

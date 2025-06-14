@@ -3,18 +3,23 @@ name: Build and Push Docker Image
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main ]
 
 env:
   REGISTRY: docker.io
-  IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/jimdel  # Replace with your Docker Hub username
+  IMAGE_NAME: delayj/jimdel # Replace with your Docker Hub username & image name
 
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: read
+      packages: write
+
     steps:
-    - name: Checkout webapp repository
+    - name: Checkout repository
       uses: actions/checkout@v4
 
     - name: Set up Docker Buildx
@@ -23,7 +28,6 @@ jobs:
     - name: Log in to Docker Hub
       uses: docker/login-action@v3
       with:
-        registry: ${{ env.REGISTRY }}
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
@@ -33,16 +37,16 @@ jobs:
       with:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         tags: |
+          type=ref,event=branch
+          type=ref,event=pr
           type=semver,pattern={{version}}
-          type=raw,value=latest
+          type=semver,pattern={{major}}.{{minor}}
           type=sha,prefix={{branch}}-
 
     - name: Build and push Docker image
-      id: build
       uses: docker/build-push-action@v5
       with:
         context: .
-        platforms: linux/amd64,linux/arm64  # Multi-platform build for Pi compatibility
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
