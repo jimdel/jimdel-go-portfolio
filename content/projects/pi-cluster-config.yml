@@ -1,0 +1,5 @@
+title: "Raspberry Pi Cluster: Config"
+url: "https://github.com/jimdel/pi-cluster-config"
+date: "2025-06-16"
+description: "Configuration files and manifests for a 5 node Raspberry Pi cluster that runs k3s (Kubernetes). This repository contains the Kubernetes manifests and Helm charts used to deploy applications and services on the cluster."
+coverImg: "raspberry-pi.png"

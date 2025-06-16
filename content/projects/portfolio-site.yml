@@ -1,5 +1,5 @@
 title: "jimdel.com"
-url: "https://github.com/jimdel/raspberry-pi-cluster"
-date: "2023-10-05"
-description: "This is the source code for my personal website. It is built using Go, Templ, HTMX, Alpine, and Tailwind CSS. I use it to showcase my projects and blog."
+url: "https://github.com/jimdel/jimdel-go-portfolio"
+date: "2024-12-17"
+description: "This is the source code for my personal website (this site). It is built using Go, Templ, HTMX, Alpine, and Tailwind CSS. I use it to showcase my projects and blog."
 coverImg: "code.jpg"

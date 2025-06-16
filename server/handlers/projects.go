@@ -2,11 +2,12 @@ package handlers
 
 import (
 	"fmt"
+	"time"
 
 	"jimdel/pkg/server/helpers"
 	"jimdel/pkg/web/views/pages"
-
 	"net/http"
+	"sort"
 )
 
 func ProjectHandler(w http.ResponseWriter, r *http.Request) {
@@ -27,6 +28,11 @@ func getAllProjects() []helpers.Project {
 		project := helpers.ParseYaml(fileName, &helpers.Project{})
 		projects = append(projects, *project)
 	}
-	fmt.Println(projects)
+	// Sort projects by the Date field
+	sort.Slice(projects, func(i, j int) bool {
+		dateI, _ := time.Parse("2006-01-02", projects[i].Date)
+		dateJ, _ := time.Parse("2006-01-02", projects[j].Date)
+		return dateJ.Before(dateI)
+	})
 	return projects
 }

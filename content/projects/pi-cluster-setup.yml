@@ -1,0 +1,5 @@
+title: "Raspberry Pi Cluster: Setup"
+url: "https://github.com/jimdel/pi-cluster-setup"
+date: "2023-10-05"
+description: "A 5 node Raspberry Pi cluster that runs k3s (Kubernetes). The entire setup is automated using Ansible to configure the operating system and join the nodes."
+coverImg: "raspberry-pi.png"

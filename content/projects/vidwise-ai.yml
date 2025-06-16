@@ -1,0 +1,6 @@
+title: "VidWise AI"
+url: "https://github.com/jimdel/vidwise-ai"
+date: "2025-04-06"
+description: "A tool that downloads YouTube videos, transcribes their audio content using OpenAI's Whisper model, and creates a vector database using ChromaDB for efficient semantic search."
+coverImg: "youtubeai.jpg"
+isDarkBg: true
