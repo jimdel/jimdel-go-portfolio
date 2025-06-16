@@ -46,15 +46,19 @@ jobs:
           echo "Using tag version: $VERSION"
         elif [[ -n "$LATEST_TAG" ]]; then
           # If no tag, generate version based on latest tag + commit count + short SHA
+          # Extract the base version without 'v' prefix
+          BASE_VERSION="${LATEST_TAG#v}"
+          # Get commit count for pre-release identifier
           COMMIT_COUNT=$(git rev-list --count $LATEST_TAG..HEAD)
           SHORT_SHA=$(git rev-parse --short HEAD)
-          VERSION="${LATEST_TAG#v}.${COMMIT_COUNT}-${SHORT_SHA}"
+          # Create proper semver with commit count and SHA as pre-release identifiers
+          VERSION="${BASE_VERSION}-${COMMIT_COUNT}.${SHORT_SHA}"
           echo "Generated version: $VERSION"
         else
-          # If no tags exist yet, start with 0.1.0 + commit count + short SHA
+          # If no tags exist yet, start with 1.0.0 + commit count + short SHA as pre-release identifiers
           COMMIT_COUNT=$(git rev-list --count HEAD)
           SHORT_SHA=$(git rev-parse --short HEAD)
-          VERSION="0.1.0.${COMMIT_COUNT}-${SHORT_SHA}"
+          VERSION="1.0.0-${COMMIT_COUNT}.${SHORT_SHA}"
           echo "Initial version: $VERSION"
         fi
         
