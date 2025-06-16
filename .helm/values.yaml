@@ -1,29 +1,3 @@
-# # globals
-# applicationName: jimdel
-
-# # deployment.yaml 
-# deployment:
-  # replicaCount: 2
-  # containerPort: 3000
-
-# # image configuration - restructured for Flux compatibility
-# image:
-#   repository: delayj/jimdel
-#   tag: latest
-#   pullPolicy: Always
-# # 
-# # service.yaml
-# service:
-#   targetPort: 8080
-
-# # ingress.yaml
-# ingress:
-#   host: jimdel.dev
-
-# # certmanager
-# certmanager:
-#   contactEmail: "jim@jim.com" #TODO: load from env
-
 # Image configuration - Flux will override the tag
 image:
   repository: delayj/jimdel
@@ -31,19 +5,19 @@ image:
   pullPolicy: IfNotPresent
 
 # App configuration
-replicaCount: 1
+replicaCount: 2
 
 # Service configuration
 service:
   type: ClusterIP
   port: 80
-  targetPort: 8080  # Adjust to your Go app's port
+  targetPort: 8080  # Adjust to app's port
 
-# Ingress configuration - make sure this matches your existing setup
+# Ingress configuration
 ingress:
   enabled: true
   className: traefik
-  host: jimdel.dev # Update with your actual domain
+  host: jimdel.dev # Update with domain
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
