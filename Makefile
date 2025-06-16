@@ -1,7 +1,5 @@
 .PHONY: build-local build templ notify-templ-proxy run
 
--include .env
-
 build-local:
 	@go build -tags local -o ./tmp/main ./cmd/main
 
@@ -16,7 +14,7 @@ build-tailwind:
 	@cd web && npm run tw:build
 
 templ:
-	@templ generate --watch --proxy=http://localhost:$(APP_PORT) --proxyport=$(TEMPL_PROXY_PORT) --open-browser=false --proxybind="0.0.0.0"
+	@templ generate --watch --proxy=http://localhost:8080 --proxyport=8081 --open-browser=false --proxybind="0.0.0.0"
 
 prod:
 	@./bin/main

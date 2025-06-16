@@ -47,8 +47,7 @@ WORKDIR /app
 # Create an empty static directory in the distroless image
 # This is a hack to make sure the directory exists
 COPY --from=build-stage /app/static/. /app/static/
-# Ensure .env file exists to avoid runtime errors
-RUN touch .env 
+
 
 EXPOSE 8080
 USER nonroot:nonroot
