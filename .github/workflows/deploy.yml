@@ -21,6 +21,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0 # Fetch all history for proper versioning
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
@@ -30,6 +32,36 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
+        
+    - name: Generate semver
+      id: semver
+      run: |
+        # Get the latest version tag (if any)
+        git fetch --tags
+        LATEST_TAG=$(git tag -l "v*" --sort=-v:refname | head -n 1)
+        
+        if [[ $GITHUB_REF == refs/tags/v* ]]; then
+          # If this is a tag push, use the tag
+          VERSION=${GITHUB_REF#refs/tags/}
+          echo "Using tag version: $VERSION"
+        elif [[ -n "$LATEST_TAG" ]]; then
+          # If no tag, generate version based on latest tag + commit count + short SHA
+          COMMIT_COUNT=$(git rev-list --count $LATEST_TAG..HEAD)
+          SHORT_SHA=$(git rev-parse --short HEAD)
+          VERSION="${LATEST_TAG#v}.${COMMIT_COUNT}-${SHORT_SHA}"
+          echo "Generated version: $VERSION"
+        else
+          # If no tags exist yet, start with 0.1.0 + commit count + short SHA
+          COMMIT_COUNT=$(git rev-list --count HEAD)
+          SHORT_SHA=$(git rev-parse --short HEAD)
+          VERSION="0.1.0.${COMMIT_COUNT}-${SHORT_SHA}"
+          echo "Initial version: $VERSION"
+        fi
+        
+        # Set the version without the 'v' prefix for semver
+        SEMVER_VERSION="${VERSION#v}"
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+        echo "semver=$SEMVER_VERSION" >> $GITHUB_OUTPUT
 
     - name: Extract metadata
       id: meta
@@ -37,8 +69,10 @@ jobs:
       with:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         tags: |
-          type=raw,value=${{ github.sha }}-v${{ github.run_number }}
+          type=raw,value=${{ steps.semver.outputs.semver }}
           type=raw,value=latest
+          type=semver,pattern={{version}},value=${{ steps.semver.outputs.version }}
+          type=semver,pattern={{major}}.{{minor}},value=${{ steps.semver.outputs.version }}
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
