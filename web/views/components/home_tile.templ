@@ -11,7 +11,7 @@ templ HomeTile(props HomeTileProps) {
 	<a
 		{ props.Attrs... }
 		href={ templ.SafeURL(props.Link) }
-		class="border-2 border-white rounded-full h-32 w-32 md:h-64 md:w-64 flex flex-col justify-center items-center font-mono tracking-wide"
+		class="border-2 border-white rounded-full h-32 w-32 md:h-52 md:w-52 flex flex-col justify-center items-center font-mono tracking-wide my-1 last:col-span-2"
 	>
 		<i
 			class={ "text-white text-4xl md:text-7xl cursor-pointer", props.Icon }

@@ -40,8 +40,7 @@ templ Navigation() {
 				<nav class="flex flex-col items-center gap-4 mt-24 font-mono">
 					// Routes - TODO: pull from a config file
 					<a @click="open = !open" href="/about" class="text-3xl my-2">about</a>
-					<a @click="open = !open" href="/blog" class="text-3xl my-2">blog</a>
-					<a @click="open = !open" href="/projects" class="text-3xl my-2">projects</a>
+					// <a @click="open = !open" href="/blog" class="text-3xl my-2">blog</a>
 					<a
 						@click="open = !open"
 						target="_blank"
@@ -50,6 +49,15 @@ templ Navigation() {
 					>
 						github
 					</a>
+					<a
+						@click="open = !open"
+						target="_blank"
+						href={ templ.SafeURL(helpers.GetSiteConfigValue("linkedin")) }
+						class="text-3xl my-2"
+					>
+						linkedin
+					</a>
+					<a @click="open = !open" href="/projects" class="text-3xl my-2">projects</a>
 					<a
 						@click="open = !open"
 						target="_blank"

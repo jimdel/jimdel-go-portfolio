@@ -42,13 +42,13 @@ func Run(PORT string) error {
 		handlers.ProjectHandler(w, r)
 	})
 
-	r.Get("/blog", func(w http.ResponseWriter, r *http.Request) {
-		handlers.BlogHandler(w, r)
-	})
+	// r.Get("/blog", func(w http.ResponseWriter, r *http.Request) {
+	// 	handlers.BlogHandler(w, r)
+	// })
 
-	r.Get("/blog/{articleId}", func(w http.ResponseWriter, r *http.Request) {
-		handlers.BlogHandler(w, r)
-	})
+	// r.Get("/blog/{articleId}", func(w http.ResponseWriter, r *http.Request) {
+	// 	handlers.BlogHandler(w, r)
+	// })
 
 	r.NotFound(func(w http.ResponseWriter, r *http.Request) {
 		component := pages.NotFound()
