@@ -18,11 +18,9 @@ templ Home() {
 				</div>
 				<div class="grid grid-cols-2 gap-4 justify-items-center max-w-screen-lg mx-auto overflow-scroll my-2">
 					@components.HomeTile(components.HomeTileProps{Icon: "fa-solid fa-address-card", Text: "about", Link: "/about"})
-					// @components.HomeTile(components.HomeTileProps{Icon: "fa-solid fa-newspaper", Text: "blog", Link: "/blog"})
 					@components.HomeTile(components.HomeTileProps{Icon: "fa-brands fa-github", Text: "github", Link: helpers.GetSiteConfigValue("github"), Attrs: templ.Attributes{"target": "_blank"}})
 					@components.HomeTile(components.HomeTileProps{Icon: "fa-brands fa-linkedin", Text: "linkedin", Link: helpers.GetSiteConfigValue("linkedin"), Attrs: templ.Attributes{"target": "_blank"}})
 					@components.HomeTile(components.HomeTileProps{Icon: "fa-solid fa-diagram-project", Text: "projects", Link: "/projects"})
-					@components.HomeTile(components.HomeTileProps{Icon: "fa-solid fa-file", Text: "resume", Link: helpers.GetSiteConfigValue("resume"), Attrs: templ.Attributes{"target": "_blank"}})
 				</div>
 			</div>
 		</div>

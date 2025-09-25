@@ -790,14 +790,6 @@ video {
   gap: 1rem;
 }
 
-.self-center {
-  align-self: center;
-}
-
-.justify-self-center {
-  justify-self: center;
-}
-
 .overflow-scroll {
   overflow: scroll;
 }
@@ -1090,12 +1082,16 @@ video {
     height: 300px;
   }
 
+  .md\:h-48 {
+    height: 12rem;
+  }
+
   .md\:w-52 {
     width: 13rem;
   }
 
-  .md\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .md\:w-48 {
+    width: 12rem;
   }
 
   .md\:grid-cols-3 {
